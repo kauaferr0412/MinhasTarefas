@@ -6,12 +6,10 @@ class LocalStorageService{
 
     static removerNaSessao(){
         localStorage.removeItem('_usuarioLogado_')
-
     }
 
     static pegarDaSessao(chave){
-      
-       return JSON.parse( localStorage.getItem(chave))
+        return JSON.parse( localStorage.getItem(chave))
     }
 }
 export default LocalStorageService

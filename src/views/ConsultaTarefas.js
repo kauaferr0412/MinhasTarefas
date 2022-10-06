@@ -143,7 +143,7 @@ class ConsultaTarefas extends React.Component {
                     Sim
                 </button>
                 <button type="button" className="btn btn-danger" onClick={this.naoMostrarDialogDeletar}>
-                   Não
+                    Não
                 </button>
             </div>
         );
@@ -151,7 +151,7 @@ class ConsultaTarefas extends React.Component {
         const footerEditar = (
             <div>
                 <button type="button" className="btn btn-sucess" onClick={this.editar}>Editar</button>
-                <button type="button" className="btn btn-danger" 
+                <button type="button" className="btn btn-danger"
                     onClick={this.naoMostrarDialogEditar}>Cancelar</button>
             </div>
 

@@ -58,7 +58,7 @@ class CadastroUsuario extends React.Component {
     }
 
     cadastrar = () => {
-        
+
         const msgs = this.validar();
 
         if (msgs && msgs.length > 0) {
@@ -69,7 +69,7 @@ class CadastroUsuario extends React.Component {
             return;
 
         }
-        
+
         const usuario = {
             nome: this.state.nome,
             email: this.state.email,

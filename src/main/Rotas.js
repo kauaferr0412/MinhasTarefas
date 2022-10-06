@@ -8,31 +8,31 @@ import ConsultaTarefas from '../views/ConsultaTarefas'
 import { AuthConsumer } from './ProvedorAutenticacao'
 import { Route, Switch, Redirect, HashRouter } from 'react-router-dom'
 import LandingPage from '../views/LandingPage'
-function RotaAutenticada( { component: Component, isUsuarioAutenticado, ...props } ){
+function RotaAutenticada({ component: Component, isUsuarioAutenticado, ...props }) {
     return (
-        <Route  {...props} render={ (componentProps) => {
-            if(isUsuarioAutenticado){
+        <Route  {...props} render={(componentProps) => {
+            if (isUsuarioAutenticado) {
                 return (
                     <Component {...componentProps} />
                 )
-            }else{
-                return(
-                    <Redirect to={ {pathname : '/login', state : { from: componentProps.location } } } />
+            } else {
+                return (
+                    <Redirect to={{ pathname: '/login', state: { from: componentProps.location } }} />
                 )
             }
-        }}  />
+        }} />
     )
 }
-function RotaAutenticadaLogin( { component: Component, isUsuarioAutenticado } ){
-     if(isUsuarioAutenticado){
-        return(<Redirect to={ {pathname : '/home'} } />)
-    }else{
-        return(<Component />)
+function RotaAutenticadaLogin({ component: Component, isUsuarioAutenticado }) {
+    if (isUsuarioAutenticado) {
+        return (<Redirect to={{ pathname: '/home' }} />)
+    } else {
+        return (<Component />)
     }
-   
+
 }
 
-function Rotas(props){
+function Rotas(props) {
     return (
         <HashRouter>
             <Switch>
@@ -49,6 +49,6 @@ function Rotas(props){
 
 export default () => (
     <AuthConsumer>
-        { (context) => (<Rotas isUsuarioAutenticado={context.isAutenticado} />) }
+        {(context) => (<Rotas isUsuarioAutenticado={context.isAutenticado} />)}
     </AuthConsumer>
 )

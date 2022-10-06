@@ -8,15 +8,15 @@ import 'toastr/build/toastr.css'
 import "primereact/resources/themes/bootstrap4-light-blue/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";
-import ProvedorAutenticacao from './ProvedorAutenticacao' 
+import ProvedorAutenticacao from './ProvedorAutenticacao'
 class App extends React.Component {
 
   render() {
 
-        return(
+    return (
 
       <ProvedorAutenticacao >
-        <NavBar />  
+        <NavBar />
 
         <div className="container">
 
