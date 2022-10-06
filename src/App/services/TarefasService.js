@@ -18,23 +18,17 @@ class TarefasService extends ApiService {
     }
 
     consultar(objeto) {
-
         let params = `?usuario=${objeto.usuario}`
-
+        
         if (objeto.descricao) {
             params = `${params}&descricao=${objeto.descricao}`
-
         }
 
-
-        if (objeto.concluido != null) {
+       if (objeto.concluido != null) {
             params = `${params}&concluido=${objeto.concluido}`
-
         }
         console.log(params)
         return this.get(params)
     }
-
-
 }
 export default TarefasService;
