@@ -39,7 +39,6 @@ function Rotas(props){
                 <RotaAutenticadaLogin isUsuarioAutenticado={props.isUsuarioAutenticado} path="/login" component={Login} />
                 <Route path="/cadastro-usuarios" component={CadastroUsuario} />
                 <Route exact path="/" component={LandingPage} />
-
                 <RotaAutenticada isUsuarioAutenticado={props.isUsuarioAutenticado} path="/home" component={Home} />
                 <RotaAutenticada isUsuarioAutenticado={props.isUsuarioAutenticado} path="/consulta-tarefas" component={ConsultaTarefas} />
                 <RotaAutenticada isUsuarioAutenticado={props.isUsuarioAutenticado} path="/cadastro-tarefas" component={CadastroTarefas} />

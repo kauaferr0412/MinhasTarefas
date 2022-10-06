@@ -54,8 +54,6 @@ export default class CadastroTarefas extends React.Component {
     encerrar = () => { this.setState({ carregar: false }) }
 
     render() {
-        const listaTipo = this.service.obterListaTipo();
-
         const message = (
             <Toast ref={(el) => this.toast = el} />
         )
