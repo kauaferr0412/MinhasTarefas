@@ -12,21 +12,36 @@ export default class CadastroTarefas extends React.Component {
     constructor() {
         super();
         this.service = new TarefasService();
+
     }
 
     state = {
         id: null,
         descricao: '',
-        concluido: null
+        concluido: false,
+        lancamento: {}
 
+    }
+
+    componentDidMount(){
+        const params = this.props.match.params
+        console.log(params)
+        if(params.id != null){
+            this.service.pegarPorId(params.id).then(resposta =>{
+                this.setState({id: resposta.data.id, descricao: resposta.data.descricao, concluido: resposta.data.concluido})
+            }).catch(erro =>{
+                this.showError(erro.response.data)
+
+            })
+        }
     }
 
     salvar = () => {
         //DESCONSTRÓI O ELEMENTO QUE VC PASSAR E TRANSFORMA TUDO EM VARIAVEIS SEPARADAS
         this.carregar()
 
-        const { descricao, concluido } = this.state
-        const tarefa = { descricao, concluido, usuario: LocalStorageService.pegarDaSessao('_usuarioLogado_').id }
+        const {id, descricao, concluido } = this.state
+        const tarefa = {id, descricao, concluido, usuario: LocalStorageService.pegarDaSessao('_usuarioLogado_').id }
 
         this.service.salvar(tarefa).then(resposta => {
             this.showSuccess('Tarefa cadastrada com sucesso!!')
@@ -46,7 +61,7 @@ export default class CadastroTarefas extends React.Component {
         this.setState({ [nome]: valor });
     }
 
-    resetarCampos = () => { this.setState({ descricao: '', ano: '', valor: '', mes: '', tipo: '' }) }
+    resetarCampos = () => { this.setState({ id: null, descricao: '', ano: '', valor: '', mes: '', tipo: '' }) }
     showSuccess = (mensagem) => { this.toast.show({ severity: 'success', summary: mensagem, detail: null, life: 3000 }) }
     showError = (mensagem) => { this.toast.show({ severity: 'error', summary: mensagem, detail: null, life: 3000 }); }
     cancelar = () => { this.props.history.push('/consulta-tarefas') }

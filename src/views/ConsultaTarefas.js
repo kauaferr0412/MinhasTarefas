@@ -59,6 +59,8 @@ class ConsultaTarefas extends React.Component {
         }
     }
     prepararEditar = (tarefa) => {
+
+        this.props.history.push(`/cadastro-tarefas/${tarefa.id}`)
         this.setState({
             idEditar: tarefa.id,
             descricaoEditar: tarefa.descricao,
