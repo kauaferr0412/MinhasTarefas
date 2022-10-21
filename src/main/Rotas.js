@@ -34,7 +34,7 @@ function RotaAutenticadaLogin({ component: Component, isUsuarioAutenticado }) {
 
 function Rotas(props) {
     return (
-        <HashRouter>
+        <HashRouter basename="/portal-implantacao">
             <Switch>
                 <RotaAutenticadaLogin isUsuarioAutenticado={props.isUsuarioAutenticado} path="/login" component={Login} />
                 <Route path="/cadastro-usuarios" component={CadastroUsuario} />
