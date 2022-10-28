@@ -41,7 +41,7 @@ function Rotas(props) {
                 <Route exact path="/" component={LandingPage} />
                 <RotaAutenticada isUsuarioAutenticado={props.isUsuarioAutenticado} path="/home" component={Home} />
                 <RotaAutenticada isUsuarioAutenticado={props.isUsuarioAutenticado} path="/consulta-tarefas" component={ConsultaTarefas} />
-                <RotaAutenticada isUsuarioAutenticado={props.isUsuarioAutenticado} path="/cadastro-tarefas/:id" component={CadastroTarefas} />
+                <RotaAutenticada isUsuarioAutenticado={props.isUsuarioAutenticado} path="/cadastro-tarefas?=:id" component={CadastroTarefas} />
                 <RotaAutenticada isUsuarioAutenticado={props.isUsuarioAutenticado} path="/cadastro-tarefas" component={CadastroTarefas} />
 
             </Switch>
